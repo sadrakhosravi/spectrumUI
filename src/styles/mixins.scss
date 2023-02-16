@@ -1,0 +1,132 @@
+@import './variables';
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin width-height-full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin default-transition {
+  transition: background 0.15s ease-in-out;
+}
+
+@mixin hover($alpha: 0.05) {
+  background-color: rgba($color: #fff, $alpha: $alpha);
+}
+
+@mixin hover-state {
+  @include default-transition;
+  &:hover {
+    background: $color-bg-tertiary;
+  }
+
+  &:active {
+    background: $color-bg-secondary;
+  }
+}
+
+@mixin hover-state-secondary {
+  &:not(:disabled) {
+    @include default-transition;
+    &:hover {
+      background: rgba(#fff, 0.175);
+    }
+
+    &:active {
+      background: $color-bg-tertiary;
+    }
+  }
+}
+
+@mixin hover-focus-primary {
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-light1;
+  }
+
+  &:active {
+    background-color: $color-primary-light2;
+    @include ring;
+  }
+}
+
+@mixin active-state {
+  background: $color-bg-tertiary;
+}
+
+@mixin active-focus-state {
+  &:not(:disabled) {
+    &:focus,
+    &:active {
+      @include ring;
+    }
+  }
+}
+
+@mixin ring {
+  outline: 1.7px solid $color-primary;
+  border-radius: 5px;
+}
+
+@mixin border-radius {
+  border-radius: $border-primary-radius;
+}
+
+@mixin border-primary {
+  border: $border-primary-width solid $border-primary-color;
+  border-radius: 5px;
+}
+
+@mixin border-primary-light {
+  border: $border-primary-width solid rgba(#fff, 0.2);
+  border-radius: 5px;
+}
+
+@mixin border-secondary {
+  border: 1px solid $border-primary-color;
+  border-radius: 3px;
+}
+
+@mixin border-style($direction, $width: 2px) {
+  border-#{$direction}: $width solid rgba($color: #fff, $alpha: 0.1);
+}
+
+@mixin border-all-style($width: 2px) {
+  border: $width solid rgba($color: #fff, $alpha: 0.1);
+}
+
+@mixin opacity-active-hover {
+  opacity: 0.45;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+@mixin slide-left {
+  animation: slideLeft 0.15s forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(12px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

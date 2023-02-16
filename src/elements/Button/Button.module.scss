@@ -1,0 +1,43 @@
+@import '../../styles/mixins.scss';
+
+.Button {
+  background-color: rgba($color: #fff, $alpha: 0.1);
+  padding: $gap-2xs $gap-xl;
+  border: $border-primary-width solid transparent;
+  height: fit-content;
+  width: fit-content;
+  color: #fff;
+  @include flex-center;
+  @include border-radius;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba($color: #fff, $alpha: 0.2);
+  }
+
+  &:active,
+  &:focus {
+    border: $border-primary-width solid $color-primary;
+  }
+}
+
+.ButtonPrimary {
+  background-color: $color-primary;
+  &:hover {
+    background-color: rgba($color: $color-primary, $alpha: 0.8);
+  }
+}
+
+.FullWidth {
+  width: 100%;
+}
+
+.SizeSmall {
+  padding-inline: $gap-base;
+  font-size: $size-font-xs;
+}
+
+.SizeLarge {
+  padding: $gap-base $gap-2xl;
+  font-size: $size-font-lg;
+}
