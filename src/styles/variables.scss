@@ -1,4 +1,5 @@
 /// ------------ Colors ------------ ///
+
 // Font colors
 $color-text-primary: #cccccc;
 $color-text-secondary: #464646;
@@ -57,6 +58,10 @@ $gap-6xl: 5rem; // 50px
 $gap-7xl: 6rem; // 60px
 $gap-8xl: 8rem; // 80px
 
+/// ------------ Button Paddings ------------ ///
+@mixin buttonPadding() {
+}
+
 /// ------------ Borders ------------ ///
 $border-primary-width: 1.5px;
 $border-secondary-width: 1px;
@@ -66,3 +71,64 @@ $border-primary-radius: 2px;
 
 /// ------------ Inputs ------------ ///
 $input-padding: 1.1rem 2rem;
+
+/// ------------ Ring ------------ ///
+$focus-width-offset: 1px;
+$ring-inset: outset;
+
+/// ------------ Hover ------------ ///
+$hover-alpha: 0.1;
+$hover-background: rgba(#fff, $alpha: $hover-alpha);
+
+:root {
+  // Font colors
+  --color-text-primary: #cccccc;
+  --color-text-secondary: #464646;
+  --color-text-tertiary: #666666;
+  --color-text-white: #ffffff;
+
+  // Background colors
+  --color-bg-primary: #181818;
+  --color-bg-secondary: #232323;
+  --color-bg-tertiary: #333333;
+  --color-bg-dark3: #262626;
+  --color-bg-dark2: #212121;
+  --color-bg-light: #666666;
+  --color-panel-primary: #1e1e1e;
+
+  // Border colors
+  --color-border-primary: #333333;
+
+  // Other colors
+  --color-left-nav: #b4b4b4;
+  --color-white: #fff;
+  --color-primary: #006fc4;
+  --color-primary-light1: #1698fc;
+  --color-primary-light2: #0d85e0;
+  --color-red: #c0392b;
+  --color-dark4: rgba($color: #0a0a0a, $alpha: 0.5);
+  // Font sizes
+  --size-font-xs: 1.1rem; // 11px
+  --size-font-sm: 1.2rem; // 12px
+  --size-font-base: 1.3rem; // 13px
+  --size-font-baseLg: 1.45rem; // 14.5px
+  --size-font-lg: 1.6rem; // 16px
+  --size-font-xl: 2rem; // 20px
+  --size-font-2xl: 2.6rem; // 26px
+  --size-font-title: 3.2rem; // 32px
+
+  /// ------------ Borders ------------ ///
+  --border-width-primary: 1px;
+  --border-width-secondary: 2px;
+  --border-color-primary: #333333;
+  --border-color-secondary: #666666;
+  --border-radius-primary: 2px;
+  --border-radius-small: 4px;
+
+  /// ------------ Inputs ------------ ///
+  --input-padding: 1.1rem 2rem;
+
+  /// ------------ Ring ------------ ///
+  --focus-width-offset: 1px;
+  --ring-inset: outset;
+}

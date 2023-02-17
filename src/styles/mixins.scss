@@ -21,63 +21,17 @@
   transition: background 0.15s ease-in-out;
 }
 
-@mixin hover($alpha: 0.05) {
-  background-color: rgba($color: #fff, $alpha: $alpha);
-}
-
-@mixin hover-state {
-  @include default-transition;
-  &:hover {
-    background: $color-bg-tertiary;
-  }
-
-  &:active {
-    background: $color-bg-secondary;
+@mixin ring($size: 1px, $color: $color-primary) {
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0 0 0 calc($size + $focus-width-offset) $color;
   }
 }
 
-@mixin hover-state-secondary {
-  &:not(:disabled) {
-    @include default-transition;
-    &:hover {
-      background: rgba(#fff, 0.175);
-    }
-
-    &:active {
-      background: $color-bg-tertiary;
-    }
+@mixin hover($color: #fff) {
+  &:not(:disabled):hover {
+    background-color: rgba($color, $alpha: $hover-alpha);
   }
-}
-
-@mixin hover-focus-primary {
-  background-color: $color-primary;
-
-  &:hover {
-    background-color: $color-primary-light1;
-  }
-
-  &:active {
-    background-color: $color-primary-light2;
-    @include ring;
-  }
-}
-
-@mixin active-state {
-  background: $color-bg-tertiary;
-}
-
-@mixin active-focus-state {
-  &:not(:disabled) {
-    &:focus,
-    &:active {
-      @include ring;
-    }
-  }
-}
-
-@mixin ring {
-  outline: 1.7px solid $color-primary;
-  border-radius: 5px;
 }
 
 @mixin border-radius {
@@ -114,6 +68,11 @@
   &:focus {
     opacity: 1;
   }
+}
+
+/// ------------------ Button ------------------ ///
+@mixin button-padding($inline: $gap-2xs, $block: $gap-2xs) {
+  padding: $inline $block;
 }
 
 @mixin slide-left {

@@ -1,0 +1,11 @@
+@import '../../../styles/mixins.scss';
+
+.MenuButton {
+  border-radius: var(--border-radius-small);
+  @include button-padding($gap-2xs, $gap-base);
+  @include hover;
+
+  &[data-state='open'] {
+    background-color: $hover-background;
+  }
+}

@@ -1,24 +1,31 @@
-@import '../../styles/mixins.scss';
+@import '../../../styles/mixins.scss';
 
 .Button {
-  background-color: rgba($color: #fff, $alpha: 0.1);
-  padding: $gap-2xs $gap-xl;
   border: $border-primary-width solid transparent;
+  border-radius: $border-primary-radius;
   height: fit-content;
   width: fit-content;
-  color: #fff;
-  @include flex-center;
-  @include border-radius;
   justify-content: center;
+  @include button-padding;
+  @include flex-center;
 
   &:hover {
     background-color: rgba($color: #fff, $alpha: 0.2);
   }
 
-  &:active,
-  &:focus {
-    border: $border-primary-width solid $color-primary;
-  }
+  @include ring;
+}
+
+.ButtonBackgroundColor {
+  background-color: rgba($color: #fff, $alpha: 0.1);
+}
+
+.ButtonWithoutIcon {
+  padding: $gap-2xs $gap-sm;
+}
+
+.ButtonWithIcon {
+  padding: 2px $gap-xs;
 }
 
 .ButtonPrimary {
@@ -40,4 +47,5 @@
 .SizeLarge {
   padding: $gap-base $gap-2xl;
   font-size: $size-font-lg;
+  gap: $gap-xs;
 }
