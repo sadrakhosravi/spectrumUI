@@ -35,13 +35,14 @@ export const Button = (props: ButtonProps) => {
   } = props;
   const sizeStyle = !size || size === 'medium' ? '' : size === 'small' ? styles.SizeSmall : styles.SizeLarge;
   const btnIconStyle = icon ? styles.ButtonWithIcon : styles.ButtonWithoutIcon;
+  const iconOnlyStyle = !text && !children ? styles.IconOnly : '';
 
   return (
     <button
+      {...rest}
       className={`${sizeStyle} ${styles.Button} ${btnIconStyle} ${transparent ? '' : styles.ButtonBackgroundColor} ${
         primary ? styles.ButtonPrimary : ''
-      } ${fullWidth ? styles.FullWidth : ''}`}
-      {...rest}
+      } ${fullWidth ? styles.FullWidth : ''} ${iconOnlyStyle} ${className || ''}`}
     >
       {/* Left icon */}
       {icon &&

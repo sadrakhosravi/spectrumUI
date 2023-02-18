@@ -1,0 +1,13 @@
+@import '../../../styles/mixins.scss';
+
+.InputWithIcon {
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  @include flex-center;
+}

@@ -5,5 +5,11 @@ import styles from './MenuPopover.module.scss';
 import { MenuPopoverProps } from './MenuPopover.types';
 
 export const MenuPopover = (props: MenuPopoverProps) => {
-  return <div className={styles.MenuPopover}>{props.children}</div>;
+  const { children, className = '', ...rest } = props;
+
+  return (
+    <div {...rest} className={`${styles.MenuPopover} ${className}`}>
+      {children}
+    </div>
+  );
 };

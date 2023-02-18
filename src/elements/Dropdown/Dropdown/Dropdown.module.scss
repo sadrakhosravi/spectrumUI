@@ -1,0 +1,20 @@
+@import '../../../styles/mixins.scss';
+
+.DropdownTrigger {
+  min-width: 15rem;
+  background-color: $color-bg-secondary;
+  padding: $padding-content-primary;
+  @include flex-center;
+  justify-content: space-between;
+  border-radius: var(--border-radius-primary);
+
+  @include ring;
+
+  &[data-state='open'] {
+    @include ringWithoutState;
+  }
+}
+
+.DropdownPopover {
+  min-width: 15rem;
+}

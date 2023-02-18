@@ -1,0 +1,28 @@
+@import '../../styles/mixins.scss';
+
+.MenuItem {
+  min-width: 10rem;
+  width: 100%;
+  gap: $gap-6xl;
+  justify-content: space-between;
+  position: relative;
+  border-radius: var(--border-radius-primary);
+  @include button-padding($block: $gap-3xl);
+  @include flex-center;
+  @include hover;
+}
+
+.MenuItemActive {
+  background-color: rgba($color: $color-primary, $alpha: 0.3);
+
+  &:not(:disabled):hover {
+    background-color: rgba($color: $color-primary, $alpha: 0.3);
+  }
+}
+
+.MenuItemChecked {
+  position: absolute;
+  left: $gap-2xs;
+  top: 50%;
+  transform: translateY(-50%);
+}

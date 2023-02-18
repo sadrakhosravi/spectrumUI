@@ -1,0 +1,12 @@
+@import '../../../styles/mixins.scss';
+
+.Input {
+  padding: $padding-content-primary;
+  background-color: $color-bg-secondary;
+  min-width: 150px;
+  @include ring;
+
+  &::placeholder {
+    opacity: 0.4;
+  }
+}

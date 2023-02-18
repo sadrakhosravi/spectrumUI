@@ -58,9 +58,8 @@ $gap-6xl: 5rem; // 50px
 $gap-7xl: 6rem; // 60px
 $gap-8xl: 8rem; // 80px
 
-/// ------------ Button Paddings ------------ ///
-@mixin buttonPadding() {
-}
+/// ------------ Paddings ------------ ///
+$padding-content-primary: $gap-xs $gap-xs;
 
 /// ------------ Borders ------------ ///
 $border-primary-width: 1.5px;

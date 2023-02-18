@@ -15,7 +15,13 @@ export const Menu = (props: MenuProps) => {
       <div>
         {/* Menu button */}
         <PopoverTrigger asChild>
-          {typeof label === 'string' && <div className={styles.MenuButton}>{label}</div>}
+          {typeof label === 'string' ? (
+            <div className={styles.MenuButton} role='button' tabIndex={0}>
+              {label}
+            </div>
+          ) : (
+            label
+          )}
         </PopoverTrigger>
         {/* Menu Popover  */}
         <PopoverContent className='Popover'>

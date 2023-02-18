@@ -3,7 +3,6 @@ import {
   useFloating,
   offset,
   flip,
-  shift,
   useClick,
   useDismiss,
   useRole,
@@ -42,11 +41,10 @@ export function usePopover({
     open,
     onOpenChange: setOpen,
     middleware: [
-      offset(1),
+      offset(2),
       flip({
         fallbackAxisSideDirection: 'end',
       }),
-      shift({ padding: 5 }),
     ],
   });
 
@@ -105,6 +103,7 @@ export function Popover({
   // This can accept any props as options, e.g. `placement`,
   // or other positioning options.
   const popover = usePopover({ modal, ...restOptions });
+
   return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;
 }
 
@@ -146,12 +145,15 @@ export const PopoverTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTML
   },
 );
 
-export const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(function PopoverContent(
-  props,
-  propRef,
-) {
-  const { context: floatingContext, ...context } = usePopoverContext();
+export const PopoverContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLProps<HTMLDivElement> & {
+    closeOnClick?: boolean;
+  }
+>(function PopoverContent(props, propRef) {
+  const { context: floatingContext, setOpen, ...context } = usePopoverContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
+  const { closeOnClick } = props;
 
   return (
     <FloatingPortal>
@@ -168,6 +170,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
             }}
             aria-labelledby={context.labelId}
             aria-describedby={context.descriptionId}
+            onClick={closeOnClick ? () => setOpen(false) : undefined}
             {...context.getFloatingProps(props)}
           >
             {props.children}
